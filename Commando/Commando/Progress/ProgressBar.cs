@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Commando.Colors;
 
 namespace Commando.Progress
@@ -11,7 +10,7 @@ namespace Commando.Progress
         private int Percent { get; set; }
         private bool IsDone { get; set; }
         private string Status { get; set; }
-
+        private string OldString { get; set; }
         public ProgressBar(char sign, string status = "")
         {
             Sign = sign;
@@ -23,17 +22,17 @@ namespace Commando.Progress
 
         public ProgressBar() : this('=') { }
 
-        public void Increase(int percent)
+        public void Set(int percent)
         {
-            Percent += percent;
+            Percent = percent;
             if (Percent > 100) Percent = 100;
             Draw(true);
         }
 
-        public void Increase(int percent, string status)
+        public void Set(int percent, string status)
         {
             Status = status;
-            Increase(percent);
+            Set(percent);
         }
 
         private void Draw(bool redraw = false)
@@ -45,9 +44,14 @@ namespace Commando.Progress
             if (Percent == 100) Done();
 
             var str = string.Format("[{0," + -1 * Width + "}] {1}% {2}", new string(Sign, Percent/Width), Percent, Status.Yellow());
-            if (redraw) ClearCurrentConsoleLine();
+            if (redraw)
+            {
+                Console.Write("\r{0}", new string(' ', OldString.Length));
+                str = '\r' + str;
+            }
             if (IsDone) str += Environment.NewLine;
             Console.Write(str);
+            OldString = str;
         }
 
         private void ClearCurrentConsoleLine()

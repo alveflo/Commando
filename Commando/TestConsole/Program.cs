@@ -5,6 +5,7 @@ using Commando.Colors;
 using Commando.Colors.Textwriter;
 using Commando.Pretty;
 using Commando.Progress;
+using Commando.Prompt;
 using Commando.Table;
 
 namespace TestConsole
@@ -37,27 +38,37 @@ namespace TestConsole
             p.Add(new PrettyItem("Denmark", "Copenhagen"));
             p.Print();
 
-            Console.WriteLine("\n\n2. Progress bar\n\n".Cyan().Bold());
+            Console.WriteLine("\n\n3. Prompts\n\n".Cyan().Bold());
+
+            var prompt = new SelectPrompt("Choose country");
+            prompt.Add(new PromptItem("Sweden", "SE"));
+            prompt.Add(new PromptItem("Norway", "NO"));
+            prompt.Add(new PromptItem("Finland", "FI"));
+            prompt.Add(new PromptItem("Denmark", "DK"));
+            prompt.Prompt();
+
+            Console.WriteLine("\n\n4. Progress bar\n\n".Cyan().Bold());
             ProgressBar progressBar = new ProgressBar();
-            progressBar.Increase(10, "Initializing");
+            progressBar.Set(10, "Initializing");
             Thread.Sleep(2000);
-            progressBar.Increase(10, "Downloading...");
+            progressBar.Set(20, "Downloading...");
             Thread.Sleep(1000);
-            progressBar.Increase(10);
+            progressBar.Set(30);
             Thread.Sleep(100);
-            progressBar.Increase(10);
+            progressBar.Set(40);
             Thread.Sleep(1000);
-            progressBar.Increase(10, "Building");
+            progressBar.Set(50, "Building");
             Thread.Sleep(100);
-            progressBar.Increase(10);
+            progressBar.Set(60);
             Thread.Sleep(100);
-            progressBar.Increase(10);
+            progressBar.Set(70);
             Thread.Sleep(1000);
-            progressBar.Increase(10, "Creating databases");
+            progressBar.Set(80, "Creating databases");
             Thread.Sleep(1000);
-            progressBar.Increase(10, "Finishing");
+            progressBar.Set(90, "Finishing");
             Thread.Sleep(2000);
-            progressBar.Increase(10);
+            progressBar.Set(100);
+
         }
     }
 }
