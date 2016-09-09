@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Threading;
+
 using Commando.Colors;
 using Commando.Colors.Textwriter;
 using Commando.Pretty;
+using Commando.Progress;
 using Commando.Table;
 
 namespace TestConsole
@@ -34,7 +37,27 @@ namespace TestConsole
             p.Add(new PrettyItem("Denmark", "Copenhagen"));
             p.Print();
 
-            Console.WriteLine("\n\n");
+            Console.WriteLine("\n\n2. Progress bar\n\n".Cyan().Bold());
+            ProgressBar progressBar = new ProgressBar();
+            progressBar.Increase(10, "Initializing");
+            Thread.Sleep(2000);
+            progressBar.Increase(10, "Downloading...");
+            Thread.Sleep(1000);
+            progressBar.Increase(10);
+            Thread.Sleep(100);
+            progressBar.Increase(10);
+            Thread.Sleep(1000);
+            progressBar.Increase(10, "Building");
+            Thread.Sleep(100);
+            progressBar.Increase(10);
+            Thread.Sleep(100);
+            progressBar.Increase(10);
+            Thread.Sleep(1000);
+            progressBar.Increase(10, "Creating databases");
+            Thread.Sleep(1000);
+            progressBar.Increase(10, "Finishing");
+            Thread.Sleep(2000);
+            progressBar.Increase(10);
         }
     }
 }
