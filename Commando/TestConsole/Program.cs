@@ -1,6 +1,8 @@
 ﻿using System;
 using Commando.Colors;
-using Commando.Figures;
+using Commando.Colors.Textwriter;
+using Commando.Pretty;
+using Commando.Table;
 
 namespace TestConsole
 {
@@ -8,25 +10,31 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            var Printer = new Printer();
-            Printer.Red("? ").Blue("What is your favorite dish: ").NewLine().Green("This was cool!");
+            CommandoTextWriter.Use();
 
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WriteLine();
-            Console.WriteLine(Figure.Circle);
-            Console.WriteLine(Figure.CircleDotted);
-            Console.WriteLine(Figure.CircleFilled);
-            Console.WriteLine(Figure.ArrowDown);
-            Console.WriteLine(Figure.ArrowUp);
-            Console.WriteLine(Figure.ArrowLeft);
-            Console.WriteLine(Figure.ArrowRight);
-            Console.WriteLine(Figure.Hamburger);
-            Console.WriteLine(Figure.Pointer);
-            Console.WriteLine(Figure.PointerSmall);
-            Console.WriteLine(Figure.Smiley);
-            Console.WriteLine(Figure.Heart);
+            Console.WriteLine("\n\nDemo of Commando!\n\n".Magenta().Bold());
 
-            Console.ReadLine();
+            Console.WriteLine("1. Tables\n\n".Cyan().Bold());
+
+
+            var t = new TablePrinter("Country", "Capital", "Population");
+            t.AddRow("Sweden", "Stockholm", "~1,3M");
+            t.AddRow("Norway", "Oslo", "~900k");
+            t.AddRow("Finland", "Helsinki", "~600k");
+            t.AddRow("Denmark", "Copenhagen", "~1,3M");
+            t.Print();
+
+            Console.WriteLine("\n\n2. Pretty print\n\n".Cyan().Bold());
+
+
+            var p = new PrettyPrinter();
+            p.Add(new PrettyItem("Sweden", "Stockholm"));
+            p.Add(new PrettyItem("Norway", "Oslo"));
+            p.Add(new PrettyItem("Finland", "Helsinki"));
+            p.Add(new PrettyItem("Denmark", "Copenhagen"));
+            p.Print();
+
+            Console.WriteLine("\n\n");
         }
     }
 }
