@@ -45,7 +45,11 @@ namespace TestConsole
             prompt.Add(new PromptItem("Norway", "NO"));
             prompt.Add(new PromptItem("Finland", "FI"));
             prompt.Add(new PromptItem("Denmark", "DK"));
-            prompt.Prompt();
+            var item = prompt.Prompt();
+
+            Console.WriteLine($"You choosed {item.Name}: {item.Value.ToString()}");
+            Console.WriteLine((new Question("Is this correct?")).Prompt());
+            (new YesNoQuestion("Are you sure?!")).Prompt();
 
             Console.WriteLine("\n\n4. Progress bar\n\n".Cyan().Bold());
             ProgressBar progressBar = new ProgressBar();

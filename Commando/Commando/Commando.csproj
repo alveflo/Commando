@@ -47,7 +47,9 @@
     <Compile Include="Pretty\PrettyPrinter.cs" />
     <Compile Include="Progress\ProgressBar.cs" />
     <Compile Include="Prompt\PromptItem.cs" />
+    <Compile Include="Prompt\Question.cs" />
     <Compile Include="Prompt\SelectPrompt.cs" />
+    <Compile Include="Prompt\YesNoQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Table\TablePrinter.cs" />
   </ItemGroup>
