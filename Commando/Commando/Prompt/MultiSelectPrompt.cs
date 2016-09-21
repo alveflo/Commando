@@ -1,37 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using Commando.Colors;
 
 namespace Commando.Prompt
 {
-    public class SelectPrompt
+    sealed class SelectPromptItem
+    {
+        public PromptItem Item { get; set; }
+        public bool Selected { get; set; }
+
+        public SelectPromptItem(PromptItem item)
+        {
+            Item = item;
+            Selected = false;
+        }
+    }
+
+    public class MultiSelectPrompt
     {
         private string Question { get; set; }
         private int SelectedIndex { get; set; }
-        private List<PromptItem> PromptItems { get; set; } 
-        public SelectPrompt(string question)
+        private List<SelectPromptItem> PromptItems { get; set; }
+        private void AddToList(PromptItem item) => PromptItems.Add(new SelectPromptItem(item));
+
+        public MultiSelectPrompt(string question)
         {
-            PromptItems = new List<PromptItem>();
+            PromptItems = new List<SelectPromptItem>();
             Question = question;
         }
 
         public void Add(PromptItem item)
         {
-            PromptItems.Add(item);
+            AddToList(item);
         }
 
-        public PromptItem Prompt()
+        public IEnumerable<PromptItem> Prompt()
         {
-            Console.WriteLine("? ".Cyan().Bold() + Question.White().Bold() + " (Use arrow keys)".White());
+            Console.WriteLine("? ".Cyan().Bold() + Question.White().Bold() + " (Use space to select/deselect)".White());
 
             var index = 0;
             Print(index, false);
             ConsoleKeyInfo pressedKey = Console.ReadKey();
+
             while (!pressedKey.Key.Equals(ConsoleKey.Enter))
             {
                 index = (pressedKey.Key.Equals(ConsoleKey.DownArrow)) ? index + 1 : index;
                 index = (pressedKey.Key.Equals(ConsoleKey.UpArrow)) ? index - 1 : index;
+
+                if (pressedKey.Key.Equals(ConsoleKey.Spacebar))
+                {
+                    PromptItems[index].Selected = !PromptItems[index].Selected;
+                }
 
                 if (index < 0) index = PromptItems.Count - 1;
                 if (index >= PromptItems.Count) index = 0;
@@ -40,7 +61,9 @@ namespace Commando.Prompt
                 pressedKey = Console.ReadKey();
             }
 
-            return PromptItems[index];
+            return PromptItems
+                .Where(x => x.Selected)
+                .Select(x => x.Item);
         }
 
         private void Print(int index, bool redraw)
@@ -54,9 +77,13 @@ namespace Commando.Prompt
             for (var i = 0; i < PromptItems.Count; i++)
             {
                 var item = PromptItems[i];
-                var str = (i == index) ? $"> {item.Name}".Cyan().Bold() : $"  {item.Name}".White();
+                var str = (i == index) ? "> ".Yellow().Bold() : "  ";
+                str += (item.Selected) ? $"[x] {item.Item.Name}".Cyan().Bold() : $"[ ] {item.Item.Name}".White();
                 Console.WriteLine(str);
+
             }
+
         }
+
     }
 }

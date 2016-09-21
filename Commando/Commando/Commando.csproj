@@ -46,6 +46,7 @@
     <Compile Include="Pretty\PrettyItem.cs" />
     <Compile Include="Pretty\PrettyPrinter.cs" />
     <Compile Include="Progress\ProgressBar.cs" />
+    <Compile Include="Prompt\MultiSelectPrompt.cs" />
     <Compile Include="Prompt\PromptItem.cs" />
     <Compile Include="Prompt\Question.cs" />
     <Compile Include="Prompt\SelectPrompt.cs" />

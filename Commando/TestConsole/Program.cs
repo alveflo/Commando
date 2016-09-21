@@ -48,8 +48,19 @@ namespace TestConsole
             var item = prompt.Prompt();
 
             Console.WriteLine($"You choosed {item.Name}: {item.Value.ToString()}");
-            Console.WriteLine((new Question("Is this correct?")).Prompt());
-            (new YesNoQuestion("Are you sure?!")).Prompt();
+            new YesNoQuestion("Is this correct?").Prompt();
+
+            var multiprompt = new MultiSelectPrompt("Choose countries");
+            multiprompt.Add(new PromptItem("Sweden", "SE"));
+            multiprompt.Add(new PromptItem("Norway", "NO"));
+            multiprompt.Add(new PromptItem("Finland", "FI"));
+            multiprompt.Add(new PromptItem("Denmark", "DK"));
+            var answer = multiprompt.Prompt();
+            Console.WriteLine("You choosed:");
+            foreach (var a in answer)
+            {
+                Console.WriteLine(a.Name);
+            }
 
             Console.WriteLine("\n\n4. Progress bar\n\n".Cyan().Bold());
             ProgressBar progressBar = new ProgressBar();
