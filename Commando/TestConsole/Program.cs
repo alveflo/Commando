@@ -55,6 +55,10 @@ namespace TestConsole
             multiprompt.Add(new PromptItem("Norway", "NO"));
             multiprompt.Add(new PromptItem("Finland", "FI"));
             multiprompt.Add(new PromptItem("Denmark", "DK"));
+
+            var password = new Question("Enter password", QuestionType.Password).Prompt();
+
+
             var answer = multiprompt.Prompt();
             Console.WriteLine("You choosed:");
             foreach (var a in answer)

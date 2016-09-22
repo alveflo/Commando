@@ -6,7 +6,7 @@ using Commando.Colors;
 
 namespace Commando.Prompt
 {
-    sealed class SelectPromptItem
+    internal sealed class SelectPromptItem
     {
         public PromptItem Item { get; set; }
         public bool Selected { get; set; }
@@ -42,7 +42,7 @@ namespace Commando.Prompt
 
             var index = 0;
             Print(index, false);
-            ConsoleKeyInfo pressedKey = Console.ReadKey();
+            var pressedKey = Console.ReadKey();
 
             while (!pressedKey.Key.Equals(ConsoleKey.Enter))
             {

@@ -50,9 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Commando\Commando.csproj">
+    <ProjectReference Include="..\Commando\Commando.UI.csproj">
       <Project>{fa521dba-6231-4eaa-990e-5d8f5d3efb9a}</Project>
-      <Name>Commando</Name>
+      <Name>Commando.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
