@@ -27,7 +27,7 @@ table.AddRow("Finland", "Helsinki", "~600k");
 table.AddRow("Denmark", "Copenhagen", "~1,3M");
 table.Print();
 ```
-Prints:
+
 ![Table](https://raw.githubusercontent.com/alveflo/Commando/master/Commando/img/Tables.PNG)
 ### Pretty print
 ```csharp
@@ -38,7 +38,7 @@ pretty.Add("Finland", "Helsinki");
 pretty.Add("Denmark", "Copenhagen");
 pretty.Print();
 ```
-Prints:
+
 ![Pretty](https://raw.githubusercontent.com/alveflo/Commando/master/Commando/img/Pretty.PNG)
 ## Select lists
 ### Single select list
@@ -50,7 +50,7 @@ prompt.Add(new PromptItem("Finland", "FI"));
 prompt.Add(new PromptItem("Denmark", "DK"));
 var item = prompt.Prompt();
 ```
-Prints:
+
 ![Select prompt](https://raw.githubusercontent.com/alveflo/Commando/master/Commando/img/SelectPrompt.PNG)
 ### Multi select/checkbox list
 ```csharp
@@ -61,19 +61,42 @@ multiprompt.Add(new PromptItem("Finland", "FI"));
 multiprompt.Add(new PromptItem("Denmark", "DK"));
 var answer = multiprompt.Prompt();
 ```
-Prints:
+
 ![Multi select](https://raw.githubusercontent.com/alveflo/Commando/master/Commando/img/MultiselectPrompt.PNG)
 ## Prompts
 ### Question prompt
 ```csharp
 var password = new Question("Enter password", QuestionType.Password).Prompt();
 ```
-Prints:
+
 ![Question prompt](https://raw.githubusercontent.com/alveflo/Commando/master/Commando/img/Password.PNG)
 ### Yes/No prompt
 ```csharp
 Console.WriteLine($"You choosed Sweden: SE");
 var answer = new YesNoQuestion("Is this correct?").Prompt();
 ```
-Prints:
+
 ![Yes/No prompt](https://raw.githubusercontent.com/alveflo/Commando/master/Commando/img/Accept.PNG)
+
+# License
+MIT License
+
+Copyright (c) 2016 Victor Alveflo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
