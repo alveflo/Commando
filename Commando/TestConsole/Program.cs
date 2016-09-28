@@ -27,18 +27,15 @@ namespace TestConsole
             t.AddRow("Finland", "Helsinki", "~600k");
             t.AddRow("Denmark", "Copenhagen", "~1,3M");
             t.Print();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
+
             Console.WriteLine("\n\n2. Pretty print\n\n".Cyan().Bold());
 
 
             var p = new PrettyPrinter();
-            p.Add(new PrettyItem("Sweden", "Stockholm"));
-            p.Add(new PrettyItem("Norway", "Oslo"));
-            p.Add(new PrettyItem("Finland", "Helsinki"));
-            p.Add(new PrettyItem("Denmark", "Copenhagen"));
+            p.Add("Sweden", "Stockholm");
+            p.Add("Norway", "Oslo");
+            p.Add("Finland", "Helsinki");
+            p.Add("Denmark", "Copenhagen");
             p.Print();
             Console.WriteLine();
             Console.WriteLine();
@@ -66,11 +63,11 @@ namespace TestConsole
             multiprompt.Add(new PromptItem("Norway", "NO"));
             multiprompt.Add(new PromptItem("Finland", "FI"));
             multiprompt.Add(new PromptItem("Denmark", "DK"));
+            var answer = multiprompt.Prompt();
 
             var password = new Question("Enter password", QuestionType.Password).Prompt();
 
 
-            var answer = multiprompt.Prompt();
             Console.WriteLine("You choosed:");
             foreach (var a in answer)
             {

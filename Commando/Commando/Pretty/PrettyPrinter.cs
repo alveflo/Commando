@@ -16,7 +16,13 @@ namespace Commando.Pretty
             PrettyItems = new List<PrettyItem>();
         }
 
-        public void Add(PrettyItem item)
+
+        public void Add(string name, string value)
+        {
+            Add(new PrettyItem(name, value));
+        }
+
+        private void Add(PrettyItem item)
         {
             LongestName = (item.Name.Length > LongestName) ? item.Name.Length : LongestName;
             PrettyItems.Add(item);
