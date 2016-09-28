@@ -8,10 +8,10 @@ C# library for creating command line user interfaces.
     * [Pretty print](#pretty-print)
   * [Select lists](#select-lists)
     * [Select list](#single-select-list)
-    * [Multi select](#multi-select/checkbox-list)
+    * [Multi select](#multi-selectcheckbox-list)
   * [Prompts](#prompts)
     * [Question prompt](#question-prompt)
-    * [Yes/No prompt](#yes-no-prompt)
+    * [Yes/No prompt](#yesno-prompt)
 
 # Features
 ## Printing
