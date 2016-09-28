@@ -1,6 +1,9 @@
 # Commando
 C# library for creating command line user interfaces.
-
+# Install
+```
+PM> Install-Package Commando.UI
+```
 # Table of content
 * [Features](#features)
   * [Printing](#Printing)
