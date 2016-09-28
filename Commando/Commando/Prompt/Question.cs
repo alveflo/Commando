@@ -53,11 +53,13 @@ namespace Commando.Prompt
                 }
                 key = Console.ReadKey(true);
             }
+            Console.WriteLine();
             return pass;
         }
 
         private string PromptText()
         {
+            Console.WriteLine();
             return Console.ReadLine();
         }
     }

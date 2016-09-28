@@ -27,7 +27,10 @@ namespace TestConsole
             t.AddRow("Finland", "Helsinki", "~600k");
             t.AddRow("Denmark", "Copenhagen", "~1,3M");
             t.Print();
-
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("\n\n2. Pretty print\n\n".Cyan().Bold());
 
 
@@ -37,6 +40,10 @@ namespace TestConsole
             p.Add(new PrettyItem("Finland", "Helsinki"));
             p.Add(new PrettyItem("Denmark", "Copenhagen"));
             p.Print();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
 
             Console.WriteLine("\n\n3. Prompts\n\n".Cyan().Bold());
 
@@ -46,6 +53,10 @@ namespace TestConsole
             prompt.Add(new PromptItem("Finland", "FI"));
             prompt.Add(new PromptItem("Denmark", "DK"));
             var item = prompt.Prompt();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
 
             Console.WriteLine($"You choosed {item.Name}: {item.Value.ToString()}");
             new YesNoQuestion("Is this correct?").Prompt();
