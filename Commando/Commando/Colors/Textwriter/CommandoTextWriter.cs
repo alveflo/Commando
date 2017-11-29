@@ -124,7 +124,7 @@ namespace Commando.Colors.Textwriter
             }
         }
 
-        private void SetDefaultBackColor()
+        public void SetDefaultBackColor()
         {
             if (isInverted)
                 Console.BackgroundColor = defaultBackgroundColor;
@@ -132,7 +132,7 @@ namespace Commando.Colors.Textwriter
                 Console.ForegroundColor = defaultBackgroundColor;
         }
 
-        private void SetDefaultForeColor()
+        public void SetDefaultForeColor()
         {
             if (isInverted)
                 Console.BackgroundColor = defaultForegroundColor;

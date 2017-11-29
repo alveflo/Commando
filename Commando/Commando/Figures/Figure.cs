@@ -12,20 +12,20 @@
         public static char ArrowRight = '→';
         public static char Heart = '♥';
 
-        public static char PipeHorizontalWithTop = '┬';
-        public static char PipeHorizontalWithBottom = '┴';
+        public static char PipeHorizontalWithTop = '+';//'┬';
+        public static char PipeHorizontalWithBottom = '+';//'┴';
 
-        public static char PipeVertical = '│';
-        public static char PipeHorizontal = '─';
-        public static char PipeCross = '┼';
-        public static char PipeLeftCross = '├';
-        public static char PipeRightCross = '┤';
+        public static char PipeVertical = '|';//'│';
+        public static char PipeHorizontal = '-';//'─';
+        public static char PipeCross = '+';//'┼';
+        public static char PipeLeftCross = '|';//'├';
+        public static char PipeRightCross = '|';//'┤';
 
-        public static char PipeUpperLeftCorner = '┌';
-        public static char PipeUpperRightCorner = '┐';
+        public static char PipeUpperLeftCorner = '+';//'┌';
+        public static char PipeUpperRightCorner = '+';//'┐';
 
-        public static char PipeLower = '─';
-        public static char PipeLowerLeftCorner = '└';
-        public static char PipeLowerRightCorner = '┘';
+        public static char PipeLower = '-';//'─';
+        public static char PipeLowerLeftCorner = '+';//'└';
+        public static char PipeLowerRightCorner = '+';//'┘';
     }
 }

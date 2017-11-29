@@ -7,6 +7,7 @@ PM> Install-Package Commando.UI
 # Table of content
 * [Features](#features)
   * [Printing](#Printing)
+    * [Font style](#font-style)
     * [Table print](#table-print)
     * [Pretty print](#pretty-print)
   * [Select lists](#select-lists)
@@ -15,9 +16,40 @@ PM> Install-Package Commando.UI
   * [Prompts](#prompts)
     * [Question prompt](#question-prompt)
     * [Yes/No prompt](#yesno-prompt)
+  * [Progress bar](#progress-bar)
 
 # Features
 ## Printing
+### Font style
+#### Example
+```csharp
+CommandoTextWriter.Use();
+"Red text".Red();
+"Blue bold text".Blue().Bold();
+```
+#### Available styles
+##### Colors
+- `White`
+- `Grey`
+- `Black`
+- `Blue`
+- `Cyan`
+- `Green`
+- `Magenta`
+- `Red`
+- `Yellow`
+- `Zebra`
+- `Rainbow`
+
+##### Font weight
+- `Bold`
+- `Italic`
+- `Underline`
+- `Inverse`
+
+##### Other
+- `Reset` - resets format
+
 ### Table print
 ```csharp
 var table = new TablePrinter("Country", "Capital", "Population");
@@ -66,7 +98,8 @@ var answer = multiprompt.Prompt();
 ## Prompts
 ### Question prompt
 ```csharp
-var password = new Question("Enter password", QuestionType.Password).Prompt();
+var username = new Question("Username", QuestionType.Text).Prompt();
+var password = new Question("Password", QuestionType.Password).Prompt();
 ```
 
 ![Question prompt](https://raw.githubusercontent.com/alveflo/Commando/master/Commando/img/Password.PNG)
@@ -77,6 +110,23 @@ var answer = new YesNoQuestion("Is this correct?").Prompt();
 ```
 
 ![Yes/No prompt](https://raw.githubusercontent.com/alveflo/Commando/master/Commando/img/Accept.PNG)
+
+## Progress bar
+```csharp
+ProgressBar progressBar = new ProgressBar();
+progressBar.Set(10, "Initializing");
+progressBar.Set(20, "Downloading...");
+progressBar.Set(30);
+progressBar.Set(40);
+progressBar.Set(50, "Building");
+progressBar.Set(60);
+progressBar.Set(70);
+progressBar.Set(80);
+progressBar.Set(90, "Finishing");
+progressBar.Set(100);
+```
+
+![Progressbar](https://raw.githubusercontent.com/alveflo/Commando/master/Commando/img/Progressbar.PNG)
 
 # License
 MIT License

@@ -59,7 +59,6 @@ namespace Commando.Prompt
 
         private string PromptText()
         {
-            Console.WriteLine();
             return Console.ReadLine();
         }
     }
