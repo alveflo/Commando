@@ -96,7 +96,8 @@ var answer = multiprompt.Prompt();
 
 ![Multi select](https://raw.githubusercontent.com/alveflo/Commando/master/Commando/img/MultiselectPrompt.PNG)
 ## Prompts
-### Question prompt
+### Question prompts
+Available prompt types is `Password` and `Text`.
 ```csharp
 var username = new Question("Username", QuestionType.Text).Prompt();
 var password = new Question("Password", QuestionType.Password).Prompt();
