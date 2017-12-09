@@ -17,7 +17,14 @@ PM> Install-Package Commando.UI
     * [Question prompt](#question-prompt)
     * [Yes/No prompt](#yesno-prompt)
   * [Progress bar](#progress-bar)
-
+# Setup
+In order to use the color printing, you need to plug Commando into the console:
+```csharp
+static void Main(string[] args)
+{
+   CommandoTextWriter.Use();
+}
+```
 # Features
 ## Printing
 ### Font style
