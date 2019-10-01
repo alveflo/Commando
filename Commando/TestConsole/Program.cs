@@ -28,15 +28,6 @@ namespace TestConsole
             t.AddRow("Denmark", "Copenhagen", "~1,3M");
             t.Print();
 
-            Console.WriteLine("\n\n");
-            var t2 = new TablePrinter("Country", "Capital", "Population");
-            t2.AddRow("Sweden", "Stockholm", "~1,3M");
-            t2.AddRow("Norway", "Oslo", "~900k");
-            t2.AddRow("Finland", "Helsinki", "~600k");
-            t2.AddRow("Denmark", "Copenhagen", "~1,3M");
-            t2.AddFooter("Total", "", "~4,1M");
-            t2.Print();
-
             Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             Console.WriteLine("\n\n2. Pretty print\n\n".Cyan().Bold());
 
