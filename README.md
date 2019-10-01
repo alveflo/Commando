@@ -138,7 +138,6 @@ progressBar.Set(100);
 
 # Contribution
  - Port to .net Core 2.2 ([@domischenk](https://github.com/domischenk))
- - Footer in table ([@domischenk](https://github.com/domischenk))
 
 
 # License
