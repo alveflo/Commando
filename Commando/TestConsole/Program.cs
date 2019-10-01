@@ -112,7 +112,7 @@ namespace TestConsole
             p.Add("Italic", "Italic".Italic());
             p.Add("Underline", "Underline".Underline());
             p.Add("Inverse", "Inverse".Inverse());
-            p.Add("Red", "Red".Red());            
+            p.Add("Red", "Red".Red());
             p.Add("White", "White".White());
             p.Add("Grey", "Grey".Grey());
             p.Add("Black", "Black".Black());
@@ -122,7 +122,7 @@ namespace TestConsole
             p.Add("Magenta", "Magenta".Magenta());
             p.Add("Red", "Red".Red());
             p.Add("Yellow", "Yellow".Yellow());
-             
+
             p.Print();
 
 
