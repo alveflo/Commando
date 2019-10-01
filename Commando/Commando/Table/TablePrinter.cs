@@ -11,11 +11,13 @@ namespace Commando.Table
     public class TablePrinter
     {
         private string[] Header { get; set; }
+        private string[] Footer { get; set; }
         private List<string[]> Rows { get; set; }
         public TablePrinter(params string[] columnHeaders)
         {
             Header = columnHeaders;
             Rows = new List<string[]>();
+            Footer = new string[0];
         }
 
         public void AddRow(params string[] columns)
@@ -26,6 +28,11 @@ namespace Commando.Table
             }
 
             Rows.Add(columns);
+        }
+
+        public void AddFooter(params string[] columnFooter)
+        {
+            Footer = columnFooter;
         }
 
         public void Print()
@@ -56,7 +63,30 @@ namespace Commando.Table
                     str += GetRow(columnWidths, Figure.PipeLeftCross, Figure.PipeCross, Figure.PipeRightCross);
                 }
             }
-            str += GetRow(columnWidths, Figure.PipeLowerLeftCorner, Figure.PipeHorizontalWithBottom, Figure.PipeLowerRightCorner);
+
+            str += (Footer.Length > 0)
+                ? GetRow(columnWidths, Figure.PipeLeftCross, Figure.PipeCross, Figure.PipeRightCross)
+                : GetRow(columnWidths, Figure.PipeLowerLeftCorner, Figure.PipeHorizontalWithBottom, Figure.PipeLowerRightCorner);
+
+            for (var i = 0; i < Footer.Length; i++)
+            {
+                var footerCell = Footer[i];
+                var h = footerCell.Cyan();
+                if (footerCell.Length == 0)
+                {
+                    str += string.Format("{0} {1, " + -1 * columnWidths[i] + "}", Figure.PipeVertical, footerCell);
+                }
+                else
+                {
+                    str += string.Format("{0} {1, " + -1 * columnWidths[i] + "}", Figure.PipeVertical, footerCell).Replace(footerCell, h);
+                }
+            }
+            if (Footer.Length > 0)
+            {
+                str += " " + Figure.PipeVertical + Environment.NewLine;
+                str += GetRow(columnWidths, Figure.PipeLowerLeftCorner, Figure.PipeHorizontalWithBottom, Figure.PipeLowerRightCorner);
+            }
+
             Console.WriteLine(str);
         }
 
@@ -84,6 +114,15 @@ namespace Commando.Table
             {
                 columnWidths[i] = Header[i].Length;
             }
+
+            for (var i = 0; i < Footer.Length; i++)
+            {
+                if (Footer[i].Length > columnWidths[i])
+                {
+                    columnWidths[i] = Footer[i].Length;
+                }
+            }
+
 
             foreach (var row in Rows)
             {
