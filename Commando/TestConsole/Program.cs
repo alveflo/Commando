@@ -28,6 +28,15 @@ namespace TestConsole
             t.AddRow("Denmark", "Copenhagen", "~1,3M");
             t.Print();
 
+            Console.WriteLine("\n\n");
+            var t2 = new TablePrinter("Country", "Capital", "Population");
+            t2.AddRow("Sweden", "Stockholm", "~1,3M");
+            t2.AddRow("Norway", "Oslo", "~900k");
+            t2.AddRow("Finland", "Helsinki", "~600k");
+            t2.AddRow("Denmark", "Copenhagen", "~1,3M");
+            t2.AddFooter("Total", "", "~4,1M");
+            t2.Print();
+
             Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             Console.WriteLine("\n\n2. Pretty print\n\n".Cyan().Bold());
 
@@ -112,7 +121,7 @@ namespace TestConsole
             p.Add("Italic", "Italic".Italic());
             p.Add("Underline", "Underline".Underline());
             p.Add("Inverse", "Inverse".Inverse());
-            p.Add("Red", "Red".Red());            
+            p.Add("Red", "Red".Red());
             p.Add("White", "White".White());
             p.Add("Grey", "Grey".Grey());
             p.Add("Black", "Black".Black());
@@ -122,7 +131,7 @@ namespace TestConsole
             p.Add("Magenta", "Magenta".Magenta());
             p.Add("Red", "Red".Red());
             p.Add("Yellow", "Yellow".Yellow());
-             
+
             p.Print();
 
 
