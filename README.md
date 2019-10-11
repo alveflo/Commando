@@ -137,7 +137,7 @@ progressBar.Set(100);
 ![Progressbar](https://raw.githubusercontent.com/alveflo/Commando/master/Commando/img/Progressbar.PNG)
 
 # Contribution
- - Port to .net Core 2.2 ([@domischenk](https://github.com/domischenk))
+ - Port to .NET Core 2.2 ([@domischenk](https://github.com/domischenk))
 
 
 # License
