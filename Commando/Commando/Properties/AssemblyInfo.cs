@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Victor Alveflo")]
 [assembly: AssemblyProduct("Commando.UI")]
-[assembly: AssemblyCopyright("Copyright © Victor Alveflo 2016")]
+[assembly: AssemblyCopyright("Copyright © Victor Alveflo 2016-2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
